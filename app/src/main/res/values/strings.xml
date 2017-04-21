@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">Egg Incubator</string>
+    <string name="title_activity_home">HomeActivity</string>
+    <string name="action_settings">Settings</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+    <string name="send">SEND</string>
+    <string name="sign_in">Sign In</string>
+    <string name="fg_stat_status">Status</string>
+    <string name="fg_control_control">Control</string>
+    <string name="fg_control_temperature">Temperature</string>
+    <string name="fg_control_humidity">Humidity</string>
+    <string name="fg_control_hour_rotated">Hour Rotated</string>
+    <string name="fg_status_tv_temperature">Temperature</string>
+    <string name="fg_status_tv_temperature_stat">GOOD</string>
+    <string name="fg_status_tv_humidity">Humidity</string>
+    <string name="fg_status_tv_humidity_stat">GOOD</string>
+    <string name="fg_status_tv_rotated">Rotated</string>
+    <string name="fg_status_tv_day_stat">Day</string>
+    <string name="fg_status_tv_connect">Connect Status</string>
+
+    <string name="text_connect_stat_connect">Connect</string>
+    <string name="text_connect_stat_disconnect">Disconnect</string>
+    <string name="text_status_fair">Fair</string>
+    <string name="text_temperature">Temperature</string>
+    <string name="text_humidity">Humidity</string>
+    <string name="text_hours">Hours</string>
+    <string name="text_day">Day</string>
+
+
+</resources>

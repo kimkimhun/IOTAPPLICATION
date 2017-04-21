@@ -1,0 +1,73 @@
+{
+  "project_info": {
+    "project_number": "605772801169",
+    "firebase_url": "https://iotpush-682e4.firebaseio.com",
+    "project_id": "iotpush-682e4",
+    "storage_bucket": "iotpush-682e4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:605772801169:android:b516396f93587c7b",
+        "android_client_info": {
+          "package_name": "com.kimhunz.iotapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "605772801169-8a4mn3u2qciq3g5fonjbggoq2fi9afh3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCDtQUc0eHWKQiak5i6IdC4kq1ZO-PB1kI"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:605772801169:android:2858f4a0bedd3b3b",
+        "android_client_info": {
+          "package_name": "com.example.kimhunz.controlapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "605772801169-8a4mn3u2qciq3g5fonjbggoq2fi9afh3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCDtQUc0eHWKQiak5i6IdC4kq1ZO-PB1kI"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

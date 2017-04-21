@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorTransparent">#00000000</color>
+    <color name="colorPrimary">#FFAB00</color>
+    <color name="colorPrimaryDark">#FF6F00</color>
+    <color name="colorAccent">#333333</color>
+    <color name="bgColorWhite">#FFFFFF</color>
+    <color name="navigationBarColor">#000000</color>
+    <color name="login">#FFCC66</color>
+
+    <color name="textColorPrimary">#FFFFFF</color>
+    <color name="textColorSecondary">#333333</color>
+    <color name="textColorB1">#555555</color>
+    <color name="textHintColor">#9f9f9f</color>
+
+    <color name="fairColor">#D84315</color>
+    <color name="goodColor">#00E676</color>
+
+    <color name="lineColor1">#e0e0e0</color>
+</resources>
