@@ -34,17 +34,17 @@
 
             <LinearLayout
 
-                android:layout_weight="1"
-                android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="0dp">
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
 
                 <LinearLayout
-                    android:layout_margin="@dimen/space_4dp"
-                    android:background="@color/bgColorWhite"
-                    android:layout_weight="1"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
+                    android:layout_margin="@dimen/space_4dp"
+                    android:layout_weight="1"
+                    android:background="@color/bgColorWhite"
                     android:orientation="horizontal">
 
                     <ImageView
@@ -64,18 +64,18 @@
 
                         <TextView
                             android:id="@+id/tv_Temp"
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_gravity="center"
+                            android:gravity="center"
                             android:text="@string/fg_status_tv_temperature"
                             android:textColor="@color/textColorB1"
                             android:textSize="18sp" />
 
                         <TextView
                             android:id="@+id/tv_Temp_stat"
-                            android:layout_gravity="center"
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:gravity="center"
                             android:textColor="@color/textColorB1"
                             android:textSize="15sp" />
 
@@ -88,21 +88,20 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_weight="1"
+                        android:gravity="center"
                         android:textSize="30sp" />
 
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_margin="@dimen/space_4dp"
-                    android:background="@color/bgColorWhite"
-                    android:layout_weight="1"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:weightSum="3">
+                    android:layout_margin="@dimen/space_4dp"
+                    android:layout_weight="1"
+                    android:background="@color/bgColorWhite">
 
                     <ImageView
                         android:id="@+id/imgHum"
-
                         android:layout_width="0dp"
                         android:layout_height="65dp"
                         android:layout_gravity="center_vertical"
@@ -118,18 +117,20 @@
 
                         <TextView
                             android:id="@+id/tv_Hum"
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
+                            android:gravity="center"
                             android:text="@string/fg_status_tv_humidity"
                             android:textColor="@color/textColorB1"
                             android:textSize="18sp" />
 
                         <TextView
                             android:id="@+id/tv_Hum_stat"
-                            android:layout_gravity="center"
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:gravity="center"
                             android:textColor="@color/textColorB1"
                             android:textSize="15sp" />
                     </LinearLayout>
@@ -137,21 +138,22 @@
                     <TextView
 
                         android:id="@+id/tv_Hum_status"
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_weight="1"
+                        android:gravity="center"
                         android:textSize="30sp" />
 
                 </LinearLayout>
 
 
                 <LinearLayout
-                    android:layout_margin="@dimen/space_4dp"
-                    android:background="@color/bgColorWhite"
-                    android:layout_weight="1"
                     android:layout_width="match_parent"
-                    android:layout_height="0dp">
+                    android:layout_height="0dp"
+                    android:layout_margin="@dimen/space_4dp"
+                    android:layout_weight="1"
+                    android:background="@color/bgColorWhite">
 
                     <ImageView
                         android:id="@+id/imgHour"
@@ -162,18 +164,18 @@
                         android:src="@drawable/clock" />
 
                     <LinearLayout
-                        android:orientation="vertical"
-                        android:layout_weight="1"
                         android:layout_width="0dp"
-                        android:layout_height="match_parent">
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
 
 
                         <TextView
                             android:id="@+id/tv_Hour"
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:gravity="center"
                             android:layout_gravity="center"
+                            android:gravity="center"
                             android:text="@string/fg_status_tv_rotated"
                             android:textColor="@color/textColorB1"
                             android:textSize="18sp" />
@@ -183,47 +185,48 @@
 
                     <TextView
                         android:id="@+id/tv_Rotated_status"
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
                         android:layout_weight="1"
+                        android:gravity="center"
                         android:textSize="30sp" />
 
 
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_margin="@dimen/space_4dp"
-                    android:background="@color/bgColorWhite"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_gravity="center_vertical"
+                    android:layout_margin="@dimen/space_4dp"
                     android:layout_weight="1"
+                    android:background="@color/bgColorWhite"
                     android:orientation="horizontal">
 
                     <LinearLayout
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:gravity="center"
                         android:layout_gravity="center"
+                        android:layout_weight="1"
                         android:orientation="vertical">
 
                         <TextView
                             android:id="@+id/tv_Day_txt"
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_centerHorizontal="true"
+                            android:gravity="center"
                             android:text="@string/fg_status_tv_day_stat"
                             android:textColor="@color/textColorSecondary"
                             android:textSize="22sp" />
 
                         <TextView
                             android:id="@+id/tv_Day"
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:gravity="center"
                             android:textColor="@color/textColorSecondary"
-                            android:textSize="36sp" />
+                            android:textSize="32sp" />
 
                     </LinearLayout>
 
@@ -237,29 +240,28 @@
 
                         <TextView
                             android:id="@+id/tv_Connect_txt"
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_centerHorizontal="true"
+                            android:gravity="center"
                             android:text="@string/fg_status_tv_connect"
                             android:textColor="@color/textColorSecondary"
-                            android:textSize="20sp" />
+                            android:textSize="22sp" />
 
                         <TextView
                             android:id="@+id/tv_Connect"
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:gravity="center"
                             android:textColor="@color/textColorSecondary"
-                            android:textSize="36sp" />
+                            android:textSize="32sp" />
 
                     </LinearLayout>
-
 
 
                 </LinearLayout>
 
 
             </LinearLayout>
-
 
 
         </LinearLayout>

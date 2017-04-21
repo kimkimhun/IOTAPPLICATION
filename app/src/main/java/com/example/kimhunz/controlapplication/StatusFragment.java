@@ -42,7 +42,7 @@ public class StatusFragment extends Fragment {
             //https://obscure-ravine-60856.herokuapp.com/
             //http://10.58.157.134:8080
             //http://192.168.1.38:8080
-            mSocket = IO.socket("http://192.168.1.38:8080");
+            mSocket = IO.socket("https://obscure-ravine-60856.herokuapp.com");
         } catch (URISyntaxException e) {
             throw new RuntimeException(e);
         }
@@ -127,23 +127,24 @@ public class StatusFragment extends Fragment {
         tv_Day.setText(message[3]);
 
         if (Double.parseDouble(message[0]) < 37) {
-            tv_Temp_stat.setText(R.string.text_status_fair);
+            tv_Temp_stat.setText("Fair");
             tv_Temp_stat.setTextColor(this.getResources().getColor(R.color.fairColor));
         } else if (Double.parseDouble(message[0]) > 37) {
-            tv_Temp_stat.setText(R.string.text_status_good);
+            Log.d("D",R.string.text_status_good+"");
+            tv_Temp_stat.setText("Good");
             tv_Temp_stat.setTextColor(this.getResources().getColor(R.color.goodColor));
         }
         if (Double.parseDouble(message[1]) < 50) {
-            tv_Hum_stat.setText(R.string.text_status_fair);
+            tv_Hum_stat.setText("Fair");
             tv_Hum_stat.setTextColor(this.getResources().getColor(R.color.fairColor));
         } else if (Double.parseDouble(message[1]) > 50) {
-            tv_Hum_stat.setText(R.string.text_status_good);
+            tv_Hum_stat.setText("Good");
             tv_Hum_stat.setTextColor(this.getResources().getColor(R.color.goodColor));
         }
         if (Integer.parseInt(message[4]) == 1) {
-            tv_Connect.setText(R.string.text_connect_stat_connect);
+            tv_Connect.setText("Connected");
         } else {
-            tv_Connect.setText(R.string.text_connect_stat_disconnect);
+            tv_Connect.setText("Disconnect");
         }
 
     }

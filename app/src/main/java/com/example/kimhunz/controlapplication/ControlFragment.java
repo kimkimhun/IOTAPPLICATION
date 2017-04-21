@@ -50,7 +50,7 @@ public class ControlFragment extends Fragment implements View.OnClickListener {
             //https://obscure-ravine-60856.herokuapp.com/
             //http://10.58.157.134:8080
             //http://192.168.1.38:8080
-            mSocket = IO.socket("http://192.168.1.38:8080");
+            mSocket = IO.socket("https://obscure-ravine-60856.herokuapp.com");
         } catch (URISyntaxException e) {
             throw new RuntimeException(e);
         }
@@ -206,11 +206,11 @@ public class ControlFragment extends Fragment implements View.OnClickListener {
             case R.id.btn_send:
                 String data = setMessage(Math.round(this.valueTemp * 100.0) / 100.0, this.valueHum, this.valueHour, this.valueDay);
                 appSetData(data);
-                String dataShow = R.string.text_temperature + " : " +
+                String dataShow = "Temperature: " +
                         String.format("%.2f", this.valueTemp) +
-                        R.string.text_humidity + " : " + valueHum +
-                        R.string.text_hours + " : " + valueHour +
-                        R.string.text_day + " : " + valueDay;
+                       "Humidity: " + valueHum +
+                        "Hours: " + valueHour +
+                        "Day: " + valueDay;
                 Toast.makeText(this.getContext(), dataShow, Toast.LENGTH_SHORT).show();
                 break;
 
