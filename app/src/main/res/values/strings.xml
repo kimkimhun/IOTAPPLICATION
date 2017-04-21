@@ -21,6 +21,7 @@
     <string name="text_connect_stat_connect">Connect</string>
     <string name="text_connect_stat_disconnect">Disconnect</string>
     <string name="text_status_fair">Fair</string>
+    <string name="text_status_good">Good</string>
     <string name="text_temperature">Temperature</string>
     <string name="text_humidity">Humidity</string>
     <string name="text_hours">Hours</string>
