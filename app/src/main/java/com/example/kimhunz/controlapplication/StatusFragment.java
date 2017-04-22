@@ -4,6 +4,7 @@ package com.example.kimhunz.controlapplication;
  * Created by KiMHUNZ on 20/2/2560.
  */
 
+import android.app.ProgressDialog;
 import android.graphics.Color;
 import android.nfc.Tag;
 import android.os.Bundle;
@@ -35,6 +36,7 @@ public class StatusFragment extends Fragment {
 
 
     TextView tv_Temp_status, tv_Hum_status, tv_Rotated_status, tv_Day, tv_Connect, tv_Temp_stat, tv_Hum_stat;
+    ProgressDialog progressDialog;
 
     private Socket mSocket;
 
@@ -59,6 +61,11 @@ public class StatusFragment extends Fragment {
         mSocket.on("DeviceSend", onMessageSend);
         Log.i("DeviceSend", onMessageSend.toString());
 
+        // function use about load dialog show data
+        progressDialog = new ProgressDialog(getContext());
+        progressDialog.setCancelable(false);
+        progressDialog.setMessage("Downloading...");
+        progressDialog.show();
 
 
     }
@@ -114,6 +121,7 @@ public class StatusFragment extends Fragment {
                         return;
                     }
                     Log.i("msg", message[0].toString());
+                    progressDialog.dismiss();
 
                 }
             });
