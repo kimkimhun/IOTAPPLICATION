@@ -1,6 +1,7 @@
 package com.example.kimhunz.controlapplication;
 
 import android.util.Log;
+import android.widget.Toast;
 
 import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.firebase.iid.FirebaseInstanceIdService;
@@ -16,7 +17,7 @@ import okhttp3.FormBody;
  */
 
 public class FirebaseInstanceIDService extends FirebaseInstanceIdService {
-    private static final String TAG = "MyFirebaseIIDService";
+    private static final String TAG = "MyFirebaseIDService";
     @Override
     public void onTokenRefresh() {
         super.onTokenRefresh();

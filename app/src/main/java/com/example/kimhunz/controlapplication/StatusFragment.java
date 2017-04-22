@@ -20,6 +20,7 @@ import android.widget.Toast;
 import com.github.nkzawa.emitter.Emitter;
 import com.github.nkzawa.socketio.client.IO;
 import com.github.nkzawa.socketio.client.Socket;
+import com.google.firebase.iid.FirebaseInstanceId;
 
 
 import org.json.JSONException;
@@ -42,7 +43,7 @@ public class StatusFragment extends Fragment {
             //https://obscure-ravine-60856.herokuapp.com/
             //http://10.58.157.134:8080
             //http://192.168.1.38:8080
-            mSocket = IO.socket("https://obscure-ravine-60856.herokuapp.com");
+            mSocket = IO.socket("https://obscure-ravine-60856.herokuapp.com/");
         } catch (URISyntaxException e) {
             throw new RuntimeException(e);
         }
@@ -53,9 +54,11 @@ public class StatusFragment extends Fragment {
 
         mSocket.connect();
         // SEND Message
-
+        //String message = FirebaseInstanceId.getInstance().getToken();
+        //Toast.makeText(this.getContext(), message,Toast.LENGTH_SHORT).show();
         mSocket.on("DeviceSend", onMessageSend);
         Log.i("DeviceSend", onMessageSend.toString());
+
 
 
     }
