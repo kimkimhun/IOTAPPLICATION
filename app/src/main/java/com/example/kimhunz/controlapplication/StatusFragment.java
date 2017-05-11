@@ -5,30 +5,21 @@ package com.example.kimhunz.controlapplication;
  */
 
 import android.app.ProgressDialog;
-import android.graphics.Color;
-import android.nfc.Tag;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
-
 
 import com.github.nkzawa.emitter.Emitter;
 import com.github.nkzawa.socketio.client.IO;
 import com.github.nkzawa.socketio.client.Socket;
-import com.google.firebase.iid.FirebaseInstanceId;
-
 
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.w3c.dom.Text;
 
-import java.io.IOException;
 import java.net.URISyntaxException;
 
 
@@ -64,7 +55,7 @@ public class StatusFragment extends Fragment {
         // function use about load dialog show data
         progressDialog = new ProgressDialog(getContext());
         progressDialog.setCancelable(false);
-        progressDialog.setMessage("Downloading...");
+        progressDialog.setMessage(getString(R.string.text_downloading));
         progressDialog.show();
 
 
@@ -136,28 +127,39 @@ public class StatusFragment extends Fragment {
         tv_Hum_status.setText(message[1] + " %");
         tv_Rotated_status.setText(message[2] + " H");
         tv_Day.setText(message[3]);
+        set_tvTemp(message[0]);
+        set_tvHum(message[1]);
+        set_tvConnect(message[4]);
 
-        if (Double.parseDouble(message[0]) < 37) {
-            tv_Temp_stat.setText("Fair");
-            tv_Temp_stat.setTextColor(this.getResources().getColor(R.color.fairColor));
-        } else if (Double.parseDouble(message[0]) > 37) {
-            Log.d("D",R.string.text_status_good+"");
-            tv_Temp_stat.setText("Good");
-            tv_Temp_stat.setTextColor(this.getResources().getColor(R.color.goodColor));
+    }
+
+    private void set_tvConnect(String s) {
+        if (Integer.parseInt(s) == 1) {
+            tv_Connect.setText(getString(R.string.text_connect_stat_connect));
+        } else {
+            tv_Connect.setText(getString(R.string.text_connect_stat_disconnect));
         }
-        if (Double.parseDouble(message[1]) < 50) {
-            tv_Hum_stat.setText("Fair");
+    }
+
+    private void set_tvHum(String s) {
+        if (Double.parseDouble(s) < 50) {
+            tv_Hum_stat.setText(getString(R.string.text_status_fair));
             tv_Hum_stat.setTextColor(this.getResources().getColor(R.color.fairColor));
-        } else if (Double.parseDouble(message[1]) > 50) {
-            tv_Hum_stat.setText("Good");
+        } else if (Double.parseDouble(s) > 50) {
+            tv_Hum_stat.setText(getString(R.string.text_status_good));
             tv_Hum_stat.setTextColor(this.getResources().getColor(R.color.goodColor));
         }
-        if (Integer.parseInt(message[4]) == 1) {
-            tv_Connect.setText("Connected");
-        } else {
-            tv_Connect.setText("Disconnect");
-        }
+    }
 
+    private void set_tvTemp(String s) {
+        if (Double.parseDouble(s) < 37) {
+            tv_Temp_stat.setText(getString(R.string.text_status_fair));
+            tv_Temp_stat.setTextColor(this.getResources().getColor(R.color.fairColor));
+        } else if (Double.parseDouble(s) > 37) {
+            Log.d("D", R.string.text_status_good + "");
+            tv_Temp_stat.setText(getString(R.string.text_status_good));
+            tv_Temp_stat.setTextColor(this.getResources().getColor(R.color.goodColor));
+        }
     }
 
 

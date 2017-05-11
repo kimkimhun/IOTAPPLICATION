@@ -73,7 +73,7 @@
                         android:gravity="center"
                         android:text="@string/fg_control_temperature"
                         android:textColor="@color/textColorB1"
-                        android:textSize="25dp" />
+                        android:textSize="@dimen/txt_size_25sp" />
 
                     <TextView
                         android:id="@+id/tvTempStat"
@@ -81,8 +81,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="2"
                         android:gravity="center"
-                        android:text="36.00"
-                        android:textSize="25dp" />
+                        android:textSize="@dimen/txt_size_25sp" />
 
                 </LinearLayout>
 
@@ -147,7 +146,7 @@
                         android:gravity="center"
                         android:text="@string/fg_control_humidity"
                         android:textColor="@color/textColorB1"
-                        android:textSize="25dp" />
+                        android:textSize="@dimen/txt_size_25sp" />
 
                     <TextView
                         android:id="@+id/tvHumStat"
@@ -155,8 +154,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:gravity="center"
-                        android:text="45"
-                        android:textSize="25sp" />
+                        android:textSize="@dimen/txt_size_25sp" />
 
                 </LinearLayout>
 
@@ -220,7 +218,7 @@
                         android:gravity="center"
                         android:text="@string/text_day"
                         android:textColor="@color/textColorB1"
-                        android:textSize="25sp" />
+                        android:textSize="@dimen/txt_size_25sp" />
 
                     <TextView
                         android:id="@+id/tvDayStat"
@@ -228,8 +226,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:gravity="center"
-                        android:text="1"
-                        android:textSize="25sp" />
+                        android:textSize="@dimen/txt_size_25sp" />
 
                 </LinearLayout>
 
@@ -259,41 +256,69 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/space_10dp"
+                android:layout_margin="10dp"
                 android:layout_weight="1"
-                android:orientation="vertical">
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:weightSum="3">
 
-                <TextView
-                    android:id="@+id/tvHour"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="0.5"
-                    android:gravity="center"
-                    android:text="@string/fg_control_hour_rotated"
-                    android:textColor="@color/textColorB1"
-                    android:textSize="25sp" />
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
 
-                <SeekBar
-                    android:id="@+id/seek_Hour"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_alignBottom="@id/tvTemp"
-                    android:layout_marginBottom="@dimen/space_5dp"
-                    android:layout_marginTop="@dimen/space_10dp"
-                    android:layout_weight="1"
-                    android:max="7" />
+                    <ImageButton
+                        android:id="@+id/img_btn_HourMinus"
+                        android:layout_width="65dp"
+                        android:layout_height="65dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:background="@color/colorTransparent"
+                        android:src="@drawable/img_btn_minus_click" />
 
-                <TextView
-                    android:id="@+id/tvHourStat"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="0.5"
-                    android:gravity="center"
-                    android:text="1"
-                    android:textSize="20sp" />
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2.5"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tvHour"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="@string/text_hours"
+                        android:textColor="@color/textColorB1"
+                        android:textSize="@dimen/txt_size_25sp" />
+
+                    <TextView
+                        android:id="@+id/tvHourStat"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:textSize="@dimen/txt_size_25sp" />
+
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <ImageButton
+                        android:id="@+id/img_btn_HourPlus"
+                        android:layout_width="65dp"
+                        android:layout_height="65dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:background="@color/colorTransparent"
+                        android:src="@drawable/img_btn_plus_click" />
+
+                </RelativeLayout>
 
             </LinearLayout>
-
 
             <View
                 android:layout_width="fill_parent"

@@ -10,14 +10,16 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".SplashScreen">
+        <activity android:name=".SplashScreen"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".HomeActivity" android:label="@string/title_activity_home" android:theme="@style/AppTheme" />
+        <activity android:name=".HomeActivity" android:label="@string/title_activity_home" android:theme="@style/AppTheme"
+            android:screenOrientation="portrait"/>
             <intent-filter>
                 <action android:name="OPEN_HomeActivity"/>
                 <category android:name="android.intent.category.DEFAULT"/>
@@ -38,6 +40,9 @@
                 <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
             </intent-filter>
         </service>
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="f2355cd8123f0b9d86728093d66a65eba1f036e2" />
     </application>
 
 </manifest>

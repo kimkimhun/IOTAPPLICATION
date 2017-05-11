@@ -3,20 +3,20 @@
     <string name="section_format">Hello World from section: %1$d</string>
     <string name="title_activity_home">หน้าหลัก</string>
     <string name="action_settings">ตั้งค่า</string>
-    <string name="send">ส่งข้อมูล</string>
+    <string name="send">ตกลง</string>
     <string name="sign_in">ลงชื่อเข้าใช้</string>
     <string name="fg_stat_status">สถานะ</string>
     <string name="fg_control_control">ควบคุม</string>
     <string name="fg_control_temperature">อุณหภูมิ</string>
     <string name="fg_control_humidity">ความชื้น</string>
-    <string name="fg_control_hour_rotated">ชั่วโมง พลิกไข่</string>
+    <string name="fg_control_hour_rotated">ชั่วโมงพลิกไข่</string>
     <string name="fg_status_tv_temperature">อุณหภูมิ</string>
     <string name="fg_status_tv_temperature_stat">ดี</string>
     <string name="fg_status_tv_humidity">ความชื้น</string>
     <string name="fg_status_tv_humidity_stat">ดี</string>
-    <string name="fg_status_tv_rotated">พลิกไข่ใน</string>
+    <string name="fg_status_tv_rotated">ชั่วโมงพลิกไข่</string>
     <string name="fg_status_tv_day_stat">วันที่</string>
-    <string name="fg_status_tv_connect">สถาานะ เชื่อมต่ออินเตอร์เน็ต</string>
+    <string name="fg_status_tv_connect">การเชื่อมต่ออินเตอร์เน็ต</string>
 
     <string name="text_connect_stat_connect">เชื่อมต่อ</string>
     <string name="text_connect_stat_disconnect">ไม่เชื่อมต่อ</string>
@@ -26,5 +26,9 @@
     <string name="text_humidity">ความชื้น</string>
     <string name="text_hours">ชั่วโมง</string>
     <string name="text_day">วัน</string>
+    <string name="text_downloading">กำลังเชื่อมต่อ...</string>
+    <string name="text_activity_tab_status">สถานะ</string>
+    <string name="text_activity_tab_control">ควบคุม</string>
+    <string name="text_sending_data">กำลังส่งข้อมูล...</string>
 
 </resources>

@@ -8,12 +8,8 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
-
-import com.google.firebase.iid.FirebaseInstanceId;
 
 public class HomeActivity extends AppCompatActivity {
 
@@ -52,7 +48,7 @@ public class HomeActivity extends AppCompatActivity {
         tabLayout.setupWithViewPager(mViewPager);
 
         mViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
-        mViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener(){
+        mViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
 
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
@@ -119,7 +115,7 @@ public class HomeActivity extends AppCompatActivity {
         public Fragment getItem(int position) {
             // getItem is called to instantiate the fragment for the given page.
             // Return a PlaceholderFragment (defined as a static inner class below).
-            switch (position){
+            switch (position) {
                 case 0:
                     return new StatusFragment();
                 case 1:
@@ -140,9 +136,9 @@ public class HomeActivity extends AppCompatActivity {
             switch (position) {
                 case 0:
 
-                    return "Status";
+                    return getString(R.string.text_activity_tab_status);
                 case 1:
-                    return "Control";
+                    return getString(R.string.text_activity_tab_control);
             }
             return null;
         }
