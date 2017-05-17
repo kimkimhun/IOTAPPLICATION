@@ -55,8 +55,7 @@ public class ControlFragment extends Fragment implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         mSocket.connect();
 
-        mSocket.emit("SETAPP", "SETAPP", "ON");
-        Log.i("SETAPP", "ON");
+
         mSocket.on("DeviceSet", getOnMessageSetDevice);
 
         // function use about load dialog show data
@@ -66,8 +65,10 @@ public class ControlFragment extends Fragment implements View.OnClickListener {
 
     @Override
     public void onDestroy() {
-        super.onDestroy();
+
         mSocket.disconnect();
+        Log.i("disconnect", "disconnect");
+        super.onDestroy();
     }
 
     @Override
@@ -272,7 +273,7 @@ public class ControlFragment extends Fragment implements View.OnClickListener {
                     } catch (JSONException e) {
                         return;
                     }
-                    Log.i("msg", message[0].toString());
+                    //Log.i("msg", message[0].toString());
                     progressDialog.dismiss();
                 }
             });

@@ -50,7 +50,7 @@ public class StatusFragment extends Fragment {
         //String message = FirebaseInstanceId.getInstance().getToken();
         //Toast.makeText(this.getContext(), message,Toast.LENGTH_SHORT).show();
         mSocket.on("DeviceSend", onMessageSend);
-        Log.i("DeviceSend", onMessageSend.toString());
+        //Log.i("DeviceSend", onMessageSend.toString());
 
         // function use about load dialog show data
         progressDialog = new ProgressDialog(getContext());
@@ -62,14 +62,6 @@ public class StatusFragment extends Fragment {
     }
 
     @Override
-    public void onDestroy() {
-        super.onDestroy();
-        mSocket.disconnect();
-
-    }
-
-
-    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
@@ -78,6 +70,27 @@ public class StatusFragment extends Fragment {
         layout_contain(v);
 
         return v;
+    }
+
+    @Override
+    public void onStart() {
+        mSocket.emit("SETAPP", "SETAPP", "ON");
+        Log.i("SETAPP", "ON");
+        super.onStart();
+    }
+
+    @Override
+    public void onStop() {
+        mSocket.emit("SETAPP", "SETAPP", "OFF");
+        Log.i("SETAPP", "OFF");
+
+        super.onStop();
+    }
+
+    @Override
+    public void onDestroy() {
+        mSocket.disconnect();
+        super.onDestroy();
     }
 
     // Read View ID
@@ -111,7 +124,7 @@ public class StatusFragment extends Fragment {
                     } catch (JSONException e) {
                         return;
                     }
-                    Log.i("msg", message[0].toString());
+                    //Log.i("msg", message[0].toString());
                     progressDialog.dismiss();
 
                 }
@@ -123,9 +136,9 @@ public class StatusFragment extends Fragment {
     private void DisplayMessage(String[] message) {
         Double temp = Double.parseDouble(message[0]);
 
-        tv_Temp_status.setText(String.format("%.1f", temp) + " C");
+        tv_Temp_status.setText(String.format("%.1f", temp) + " °C");
         tv_Hum_status.setText(message[1] + " %");
-        tv_Rotated_status.setText(message[2] + " H");
+        tv_Rotated_status.setText(message[2] + " Hr");
         tv_Day.setText(message[3]);
         set_tvTemp(message[0]);
         set_tvHum(message[1]);
@@ -142,20 +155,20 @@ public class StatusFragment extends Fragment {
     }
 
     private void set_tvHum(String s) {
-        if (Double.parseDouble(s) < 50) {
+        if (Double.parseDouble(s) < 50 || Double.parseDouble(s)>65) {
             tv_Hum_stat.setText(getString(R.string.text_status_fair));
             tv_Hum_stat.setTextColor(this.getResources().getColor(R.color.fairColor));
-        } else if (Double.parseDouble(s) > 50) {
+        } else if (Double.parseDouble(s) >= 50 || Double.parseDouble(s)<=65) {
             tv_Hum_stat.setText(getString(R.string.text_status_good));
             tv_Hum_stat.setTextColor(this.getResources().getColor(R.color.goodColor));
         }
     }
 
     private void set_tvTemp(String s) {
-        if (Double.parseDouble(s) < 37) {
+        if (Double.parseDouble(s) < 36 || Double.parseDouble(s) > 38) {
             tv_Temp_stat.setText(getString(R.string.text_status_fair));
             tv_Temp_stat.setTextColor(this.getResources().getColor(R.color.fairColor));
-        } else if (Double.parseDouble(s) > 37) {
+        } else if (Double.parseDouble(s) >= 36 || Double.parseDouble(s) <= 38) {
             Log.d("D", R.string.text_status_good + "");
             tv_Temp_stat.setText(getString(R.string.text_status_good));
             tv_Temp_stat.setTextColor(this.getResources().getColor(R.color.goodColor));

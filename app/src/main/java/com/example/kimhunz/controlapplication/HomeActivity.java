@@ -8,8 +8,11 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import com.google.firebase.iid.FirebaseInstanceId;
 
 public class HomeActivity extends AppCompatActivity {
 
@@ -33,7 +36,7 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        //Log.i("token", FirebaseInstanceId.getInstance().getToken());
+        Log.i("token", FirebaseInstanceId.getInstance().getToken());
         //Toast.makeText(this,FirebaseInstanceId.getInstance().getToken(),Toast.LENGTH_SHORT).show();
 
         // Create the adapter that will return a fragment for each of the three
