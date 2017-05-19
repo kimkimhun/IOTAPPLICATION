@@ -30,6 +30,8 @@
     <string name="text_activity_tab_status">Status</string>
     <string name="text_activity_tab_control">Control</string>
     <string name="text_sending_data">Sending...</string>
+    <string name="internet_aleart_title">No Internet Connection</string>
+    <string name="internet_aleart_message">You need to have Mobile Data or wifi to access this. Press ok to Exit</string>
 
 
 </resources>

@@ -30,5 +30,8 @@
     <string name="text_activity_tab_status">สถานะ</string>
     <string name="text_activity_tab_control">ควบคุม</string>
     <string name="text_sending_data">กำลังส่งข้อมูล...</string>
+    <string name="internet_aleart_title">ไม่มีการเชื่อมต่ออินเตอร์เน็ต</string>
+    <string name="internet_aleart_message">คุณควารมีข้อมูลขอโทรศัพท์หรือไวไฟในการเข้าถึง กรุณากด ตกลง เพื่อออก</string>
+
 
 </resources>
