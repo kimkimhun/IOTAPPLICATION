@@ -167,9 +167,50 @@ public class ControlFragment extends Fragment implements View.OnClickListener {
         Log.i("SETAPP", data.toString());
     }
 
+
+    private void do_TempPlus() {
+        if (valueTemp >= 38.00) {
+            valueTemp = 38.00;
+            tvTempStat.setText(String.format("%.2f", valueTemp));
+        } else {
+            double tempValue = valueTemp;
+            valueTemp = tempValue + 0.1;
+            tvTempStat.setText(String.format("%.2f", valueTemp));
+        }
+    }
+
+    private void do_TempMinus() {
+        if (valueTemp <= 36.00) {
+            valueTemp = 36.00;
+            tvTempStat.setText(String.format("%.2f", valueTemp));
+        } else {
+            double tempValue = valueTemp;
+            valueTemp = tempValue - 0.1;
+            tvTempStat.setText(String.format("%.2f", valueTemp));
+        }
+    }
+
+    private void do_HumPlus() {
+        if (valueHum >= 80) {
+            valueHum = 80;
+            tvHumStat.setText(String.valueOf(valueHum));
+        } else {
+            tvHumStat.setText(String.valueOf(++valueHum));
+        }
+    }
+
+    private void do_HumMinus() {
+        if (valueHum <= 45) {
+            valueHum = 45;
+            tvHumStat.setText(String.valueOf(valueHum));
+        } else {
+            tvHumStat.setText(String.valueOf(--valueHum));
+        }
+    }
+
     private void do_HourPlus() {
-        if (valueHour >= 8) {
-            valueHour = 8;
+        if (valueHour >= 5) {
+            valueHour = 5;
             tvHourStat.setText(String.valueOf(valueHour));
         } else {
             tvHourStat.setText(String.valueOf(++valueHour));
@@ -186,8 +227,8 @@ public class ControlFragment extends Fragment implements View.OnClickListener {
     }
 
     private void do_DayPlus() {
-        if (valueDay >= 22) {
-            valueDay = 22;
+        if (valueDay >= 25) {
+            valueDay = 25;
             tvDayStat.setText(String.valueOf(valueDay));
         } else {
             tvDayStat.setText(String.valueOf(++valueDay));
@@ -200,46 +241,6 @@ public class ControlFragment extends Fragment implements View.OnClickListener {
             tvDayStat.setText(String.valueOf(valueDay));
         } else {
             tvDayStat.setText(String.valueOf(--valueDay));
-        }
-    }
-
-    private void do_HumPlus() {
-        if (valueHum >= 65) {
-            valueHum = 65;
-            tvHumStat.setText(String.valueOf(valueHum));
-        } else {
-            tvHumStat.setText(String.valueOf(++valueHum));
-        }
-    }
-
-    private void do_HumMinus() {
-        if (valueHum <= 45) {
-            valueHum = 45;
-            tvHumStat.setText(String.valueOf(valueHum));
-        } else {
-            tvHumStat.setText(String.valueOf(--valueHum));
-        }
-    }
-
-    private void do_TempMinus() {
-        if (valueTemp <= 36.00) {
-            valueTemp = 36.00;
-            tvTempStat.setText(String.format("%.2f", valueTemp));
-        } else {
-            double tempValue = valueTemp;
-            valueTemp = tempValue - 0.1;
-            tvTempStat.setText(String.format("%.2f", valueTemp));
-        }
-    }
-
-    private void do_TempPlus() {
-        if (valueTemp >= 38.00) {
-            valueTemp = 38.00;
-            tvTempStat.setText(String.format("%.2f", valueTemp));
-        } else {
-            double tempValue = valueTemp;
-            valueTemp = tempValue + 0.1;
-            tvTempStat.setText(String.format("%.2f", valueTemp));
         }
     }
 

@@ -28,8 +28,9 @@ public class StatusFragment extends Fragment {
 
     TextView tv_Temp_status, tv_Hum_status, tv_Rotated_status, tv_Day, tv_Connect, tv_Temp_stat, tv_Hum_stat;
     ProgressDialog progressDialog;
-
+    private int firstMessage = 0;
     private Socket mSocket;
+
 
     {
         try {
@@ -47,11 +48,9 @@ public class StatusFragment extends Fragment {
 
         mSocket.connect();
         // SEND Message
-        //String message = FirebaseInstanceId.getInstance().getToken();
-        //Toast.makeText(this.getContext(), message,Toast.LENGTH_SHORT).show();
         mSocket.on("DeviceSend", onMessageSend);
-        //Log.i("DeviceSend", onMessageSend.toString());
 
+        //Log.i("DeviceSend", onMessageSend.toString());
         // function use about load dialog show data
         progressDialog = new ProgressDialog(getContext());
         progressDialog.setCancelable(false);
@@ -104,6 +103,80 @@ public class StatusFragment extends Fragment {
         tv_Hum_stat = (TextView) v.findViewById(R.id.tv_Hum_stat);
     }
 
+    private void DisplayMessage(String[] message) {
+        Double temp = Double.parseDouble(message[0]);
+
+        tv_Temp_status.setText(String.format("%.1f", temp) + " °C");
+        tv_Hum_status.setText(message[1] + " %");
+        tv_Rotated_status.setText(message[2] + " Hr");
+        tv_Day.setText(message[3]);
+        set_tvTemp(message[0], message[3]);
+        set_tvHum(message[1], message[3]);
+        set_tvConnect(message[4]);
+
+
+    }
+
+
+    private void set_tvTemp(String s, String d) {
+
+        if (Integer.parseInt(d) <= 18) {
+            if (Double.parseDouble(s) < 37 || Double.parseDouble(s) > 38) {
+
+                tv_Temp_stat.setText(getString(R.string.text_status_fair));
+                tv_Temp_stat.setTextColor(this.getResources().getColor(R.color.fairColor));
+            } else {
+
+                tv_Temp_stat.setText(getString(R.string.text_status_good));
+                tv_Temp_stat.setTextColor(this.getResources().getColor(R.color.goodColor));
+            }
+        } else {
+            if (Double.parseDouble(s) < 36 || Double.parseDouble(s) > 37) {
+
+                tv_Temp_stat.setText(getString(R.string.text_status_fair));
+                tv_Temp_stat.setTextColor(this.getResources().getColor(R.color.fairColor));
+            } else {
+
+                tv_Temp_stat.setText(getString(R.string.text_status_good));
+                tv_Temp_stat.setTextColor(this.getResources().getColor(R.color.goodColor));
+            }
+        }
+
+    }
+
+    private void set_tvHum(String s, String d) {
+        if (Integer.parseInt(d) <= 18) {
+            if (Double.parseDouble(s) < 50 || Double.parseDouble(s) > 60) {
+
+                tv_Hum_stat.setText(getString(R.string.text_status_fair));
+                tv_Hum_stat.setTextColor(this.getResources().getColor(R.color.fairColor));
+            } else {
+
+                tv_Hum_stat.setText(getString(R.string.text_status_good));
+                tv_Hum_stat.setTextColor(this.getResources().getColor(R.color.goodColor));
+            }
+        } else {
+            if (Double.parseDouble(s) < 70 || Double.parseDouble(s) > 75) {
+
+                tv_Hum_stat.setText(getString(R.string.text_status_fair));
+                tv_Hum_stat.setTextColor(this.getResources().getColor(R.color.fairColor));
+            } else {
+
+                tv_Hum_stat.setText(getString(R.string.text_status_good));
+                tv_Hum_stat.setTextColor(this.getResources().getColor(R.color.goodColor));
+            }
+        }
+
+    }
+
+    private void set_tvConnect(String s) {
+        if (Integer.parseInt(s) == 1) {
+            tv_Connect.setText(getString(R.string.text_connect_stat_connect));
+        } else {
+            tv_Connect.setText(getString(R.string.text_connect_stat_disconnect));
+        }
+    }
+
     // Receive Status
     private Emitter.Listener onMessageSend = new Emitter.Listener() {
         @Override
@@ -125,55 +198,14 @@ public class StatusFragment extends Fragment {
                         return;
                     }
                     //Log.i("msg", message[0].toString());
+                    if(firstMessage == 0){
+                        mSocket.emit("SETAPP", "SETAPP", "ON");
+                        firstMessage = 1;
+                    }
                     progressDialog.dismiss();
-
                 }
             });
         }
     };
-
-
-    private void DisplayMessage(String[] message) {
-        Double temp = Double.parseDouble(message[0]);
-
-        tv_Temp_status.setText(String.format("%.1f", temp) + " °C");
-        tv_Hum_status.setText(message[1] + " %");
-        tv_Rotated_status.setText(message[2] + " Hr");
-        tv_Day.setText(message[3]);
-        set_tvTemp(message[0]);
-        set_tvHum(message[1]);
-        set_tvConnect(message[4]);
-
-    }
-
-    private void set_tvConnect(String s) {
-        if (Integer.parseInt(s) == 1) {
-            tv_Connect.setText(getString(R.string.text_connect_stat_connect));
-        } else {
-            tv_Connect.setText(getString(R.string.text_connect_stat_disconnect));
-        }
-    }
-
-    private void set_tvHum(String s) {
-        if (Double.parseDouble(s) < 50 || Double.parseDouble(s)>65) {
-            tv_Hum_stat.setText(getString(R.string.text_status_fair));
-            tv_Hum_stat.setTextColor(this.getResources().getColor(R.color.fairColor));
-        } else if (Double.parseDouble(s) >= 50 || Double.parseDouble(s)<=65) {
-            tv_Hum_stat.setText(getString(R.string.text_status_good));
-            tv_Hum_stat.setTextColor(this.getResources().getColor(R.color.goodColor));
-        }
-    }
-
-    private void set_tvTemp(String s) {
-        if (Double.parseDouble(s) < 36 || Double.parseDouble(s) > 38) {
-            tv_Temp_stat.setText(getString(R.string.text_status_fair));
-            tv_Temp_stat.setTextColor(this.getResources().getColor(R.color.fairColor));
-        } else if (Double.parseDouble(s) >= 36 || Double.parseDouble(s) <= 38) {
-            Log.d("D", R.string.text_status_good + "");
-            tv_Temp_stat.setText(getString(R.string.text_status_good));
-            tv_Temp_stat.setTextColor(this.getResources().getColor(R.color.goodColor));
-        }
-    }
-
 
 }
